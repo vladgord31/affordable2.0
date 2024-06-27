@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  <h1>Кошик</h1>
+  <h2>Обрані місця для фільму: {{ movie.title }}</h2>
+  <ul>
+    {% for seat in selected_seats %}
+      <li>Місце номер {{ seat.seat_no }}</li>
+    {% endfor %}
+  </ul>
+  <p>Загальна сума: {{ total_price }} грн.</p>
+{% endblock %}

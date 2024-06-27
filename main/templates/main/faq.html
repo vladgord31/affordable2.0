@@ -1,0 +1,153 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="section section--first section--bg" data-bg="{% static "main/img/bg/section__bg.jpg" %}">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section__wrap">
+						<h1 class="section__title section__title--head">Центр допомоги</h1>
+						<ul class="breadcrumbs">
+							<li class="breadcrumbs__item"><a href="index.html">Головна</a></li>
+							<li class="breadcrumbs__item breadcrumbs__item--active">FAQ</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="accordion" id="accordion">
+						<div class="row">
+							<div class="col-12 col-lg-6">
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+										Як працюють кінотеатри під час повітряної тривоги?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+
+									<div id="collapse1" class="collapse" data-bs-parent="#accordion">
+										<p> 
+                                            У випадку оголошення повітряної тривоги кінотеатр зупиняє поточні сеанси та проводить евакуацію гостей та працівників з кінотеатру до найближчого укриття.
+                                            Якщо повітряна тривога триватиме менше 20 хвилин - сеанс буде відновлено. У випадку, якщо повітряна тривога триватиме більше 20 хвилин - сеанс відновленню не підлягає.
+                                            Обміняти квитки придбані офлайн, можливо на касі кінотеатру відразу після завершення повітряної тривоги або впродовж 14 дні.
+                                            Якщо ви купили квиток онлайн, вам автоматично будуть відправлені промокоди на наступний похід в кіно (на ту кількість та категорію місць, які були в замовленні) на електронну адресу вказану при оформленні.
+                                        </p>
+									</div>
+								</div>
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+										Як працюють кінотеатри під час знеструмлення?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse2" class="collapse" data-bs-parent="#accordion">
+										<p>
+                                            На жаль, наразі, графіки відключень для нас несподівані, як і для інших споживачів.
+                                            У випадку, якщо на сайті/в додатку доступні сеанси - в кінотеатрі є світло.
+                                            Якщо сеанси відсутні - кінотеатр знеструмлено.
+                                            Обміняти квитки придбані офлайн, можливо на касі кінотеатру відразу після ввімкення світла або впродовж 14 днів.
+                                            Якщо ви купили квиток онлайн, вам автоматично будуть відправлені промокоди на наступний похід в кіно (на ту кількість та категорію місць, які були в замовленні) на електронну адресу вказану при оформленні.
+                                        </p>
+									</div>
+								</div>
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+										Вікові обмеження на перегляд фільму?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse3" class="collapse" data-bs-parent="#accordion">
+										<p>
+                                            Вікові обмеження встановлює Міністерство культури України. Вони позначені на фільмі рейтингом 0+/ 12+/ 16+/ 18+. Глядачі, які не досягли відповідного віку, можуть відвідати сеанс 16+ та 18+ виключно у супроводі батьків/офіційних опікунів дитини. 
+                                            Діти до 14 років мають знаходитись на території кінотеатру у супроводі дорослих.
+                                        </p>
+									</div>
+								</div>
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+										Показ трейлерів перед фільмом?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse4" class="collapse" data-bs-parent="#accordion">
+										<p>
+                                            Всі кінотеатри зобов’язані показувати трейлери прийдешніх стрічок. 
+                                            Це передбачено умовами співпраці з офіційними дистриб’юторами, які є офіційними правовласниками фільмів на території України. 
+                                            Згідно правил відвідування кінотеатру, Multiplex може також розміщувати короткі комерційні блоки перед сеансом.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+										Що таке 3D-окуляри?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse5" class="collapse" data-bs-parent="#accordion">
+										<p>
+                                            Для перегляду фільму в 3D потрібно взяти свої або придбати особисті 3D-окуляри. Вони продаються онлайн або в касах кінотеатру разом з квитками. 
+                                            Окуляри залишаться у тебе, тому їх можна буде використовувати і для наступних візитів. 
+                                            Є два розміри персональних 3D-окулярів: дорослі та дитячі. </p>
+									</div>
+								</div>
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+										Де можна забрати окуляри, придбані онлайн?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse6" class="collapse" data-bs-parent="#accordion">
+										<p>Забрати 3D-окуляри можна на барній касі кінотеатру або в Popcorn-маркеті</p>
+									</div>
+								</div>
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+										Що робити, якщо забув речі в кіно?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse7" class="collapse" data-bs-parent="#accordion">
+										<p>Якщо ви щось забули в кінотеатрі - не біда! Заповніть форму зворотнього зв’язку і ми допоможемо вам знайти втрачену річ.</p>
+									</div>
+								</div>
+								<div class="accordion__card">
+									<button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+										Як зв'язатися з кінотеатром напряму?
+										<span>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"/></svg>
+										</span>
+									</button>
+									<div id="collapse8" class="collapse" data-bs-parent="#accordion">
+										<p>Зв’язатися напряму з кінотеатром не можна, проте ви можете залишити заявку через форму зворотнього зв’язку, з вами зв’яжеться відповідальний менеджер.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

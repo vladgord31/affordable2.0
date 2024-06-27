@@ -1,0 +1,214 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+	<section class="section section--details">
+		<div class="section__details-bg" data-bg="{{ movie.poster.url }}"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="section__title section__title--head">{{ movie.title }}</h1>
+				</div>
+				<div class="col-12 col-xl-6">
+					<div class="item item--details">
+						<div class="item__cover">
+							<img src="{{ movie.img.url }}" alt="{{ movie.title }}">
+						</div>
+						<div class="item__content">
+							<div class="item__wrap">
+								<span class="item__rate">{{ movie.get_average_rating}}</span>
+								<ul class="item__list">
+									<li>{{ movie.age }} +</li>
+								</ul>
+							</div>
+							<ul class="item__meta">
+								<li><span>Жанр:</span> {% for genre in movie.genres.all %}<a href="#">{{ genre.name }}</a>{% endfor %}</li>
+								<li><span>Тривалість:</span> {{ movie.runtime }} хв</li>
+								<li><span>Країна:</span> <a href="#">{{ movie.country }}</a></li>
+								<li><span>Прем'єра:</span> {{ movie.world_premiere }}</li>
+							</ul>
+							<ul class="item__meta item__meta--second">
+								<li><span>Режисер:</span> {% for director in movie.directors.all %}<a href="actor.html">{{ director.name }}</a>{% endfor %}</li>
+								<li><span>Актори:</span> {% for actor in movie.actors.all %}<a href="actor.html">{{ actor.name }}</a>{% endfor %}</li>
+							</ul>
+						</div>
+
+						<div class="item__description item__description--details">
+							<p>{{ movie.description }}</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-xl-6">
+					<video class="item item--details plyr"  controls crossorigin playsinline poster="{{ movie.poster.url }}" id="player">
+						<source src="{{ movie.video.url }}" type="video/mp4" size="576">
+						<source src="{{ movie.video.url }}" type="video/mp4" size="720">
+						<source src="{{ movie.video.url }}" type="video/mp4" size="1080">
+					</video>
+				</div>
+				<div class="hero__actions">
+                    <a href="{% url 'cinema:movie_tickets' %}" class="hero__btn">
+                        <span>Купити квиток</span>
+                    </a>
+                </div>				
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<div class="content__head">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="content__title"></h2>
+						<ul class="nav nav-tabs content__tabs" id="content__tabs" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button id="1-tab" class="active" data-bs-toggle="tab" data-bs-target="#tab-1" type="button" role="tab" aria-controls="tab-1" aria-selected="true">Коментарі</button>
+							</li>
+
+							<li class="nav-item" role="presentation">
+								<button id="2-tab" data-bs-toggle="tab" data-bs-target="#tab-2" type="button" role="tab" aria-controls="tab-2" aria-selected="false">Відгуки</button>
+							</li>
+
+							<li class="nav-item" role="presentation">
+								<button id="3-tab" data-bs-toggle="tab" data-bs-target="#tab-3" type="button" role="tab" aria-controls="tab-3" aria-selected="false">Фото</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8">
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab" tabindex="0">
+							<div class="row">
+								<div class="col-12">
+									<div class="comments">
+										<ul class="comments__list">
+											{% for comment in comments %}
+											<li class="comments__item">
+												<div class="comments__autor">
+													<img class="comments__avatar" src="{% static "main/img/bg/user.svg" %}" alt="">
+													<span class="comments__name">{{ comment.user.username }}</span>
+													<span class="comments__time">{{ comment.created_at }}</span>
+												</div>
+												<p class="comments__text">{{ comment.text }}</p>
+											</li>
+											{% endfor %}
+										</ul>
+										<form action="{% url 'cinema:movie_comment' movie.slug %}" method="post" class="sign__form sign__form--comments" id="formReview">
+											{% csrf_token %}
+											<input type="hidden" name="parent_comment_id" value="{{ parent_comment_id }}">
+											<div class="sign__group">
+												<textarea id="text" name="text" class="sign__textarea" placeholder="Введіть коментар"></textarea>
+											</div>
+											<button type="submit" class="sign__btn sign__btn--small"><span>Відправити</span></button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="2-tab" tabindex="0">
+							<div class="row">
+								<div class="col-12">
+									<div class="reviews">
+										<ul class="reviews__list">
+											{% for review in reviews %}
+											<li class="reviews__item">
+												<div class="reviews__autor">
+													<img class="reviews__avatar" src="{% static "main/img/bg/user.svg" %}" alt="">
+													<span class="reviews__name">{{ review.title }}</span>
+													<span class="reviews__time">{{ review.created_at }}</span>
+
+													<span class="reviews__rating"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M22,10.1c0.1-0.5-0.3-1.1-0.8-1.1l-5.7-0.8L12.9,3c-0.1-0.2-0.2-0.3-0.4-0.4C12,2.3,11.4,2.5,11.1,3L8.6,8.2L2.9,9C2.6,9,2.4,9.1,2.3,9.3c-0.4,0.4-0.4,1,0,1.4l4.1,4l-1,5.7c0,0.2,0,0.4,0.1,0.6c0.3,0.5,0.9,0.7,1.4,0.4l5.1-2.7l5.1,2.7c0.1,0.1,0.3,0.1,0.5,0.1v0c0.1,0,0.1,0,0.2,0c0.5-0.1,0.9-0.6,0.8-1.2l-1-5.7l4.1-4C21.9,10.5,22,10.3,22,10.1z"></path></svg>{{ review.rating }}</span>
+												</div>
+												<p class="reviews__text">{{ review.text }}</p>
+											</li>
+											{% endfor %}
+										</ul>
+										<form action="{% url "cinema:movie_review" movie.slug %}" method="post" class="sign__form sign__form--comments">
+											{% csrf_token %}
+											<div class="row">
+												<div class="col-12 col-md-6">
+													<div class="sign__group">
+														<input type="text" name="title" class="sign__input" placeholder="Title">
+													</div>
+												</div>
+												<div class="col-12 col-md-6">
+													<div class="sign__group">
+														<select class="sign__select" name="rating" id="rating">
+															<option value="0">Рейтинг</option>
+															<option value="1">1 зірка</option>
+															<option value="2">2 зірки</option>
+															<option value="3">3 зірки</option>
+															<option value="4">4 зірки</option>
+															<option value="5">5 зірок</option>
+															<option value="6">6 зірок</option>
+															<option value="7">7 зірок</option>
+															<option value="8">8 зірок</option>
+															<option value="9">9 зірок</option>
+															<option value="10">10 зірок</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="sign__group">
+														<textarea name="text" class="sign__textarea" placeholder="Напишіть відгук"></textarea>
+													</div>
+												</div>
+
+												<div class="col-12">
+													<button type="submit" class="sign__btn sign__btn--small"><span>Відправити</span></button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="3-tab" tabindex="0">
+							<div class="gallery" itemscope>
+								<div class="row row--grid">
+									{% for shot in movieshots %}
+									<figure class="col-12 col-sm-6 col-xl-4" itemprop="associatedMedia" itemscope>
+										<a href="img/gallery/project-1.jpg" itemprop="contentUrl" data-size="1920x1280">
+											<img src="{{ shot.image.url }}" itemprop="thumbnail" alt="Image description" />
+										</a>
+										<figcaption itemprop="caption description">image of {{ movie.title }}</figcaption>
+									</figure>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="section__title section__title--sidebar">Вам також можуть сподобатись</h2>
+						</div>
+						{% for movie in movies %}
+                        <div class="col-6 col-sm-4 col-lg-6">
+							<div class="item">
+								<a href="{% url "cinema:movie" movie.slug %}" class="item__cover">
+									<img src="{{ movie.img.url }}" alt="">
+									<span class="item__play">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"/></svg>
+									</span>
+								</a>
+								<div class="item__content">
+									<h3 class="item__title"><a href="{% url "cinema:movie" movie.slug %}">{{ movie.title }}</a></h3>
+									<span class="item__category">
+										{% for genre in movie.genre.all %}<a href="#">{{ genre.name }}</a>{% endfor %}
+									</span>
+									<span class="item__rate">{{ movie.rating }}</span>
+								</div>
+							</div>
+						</div>
+                        {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock content %}

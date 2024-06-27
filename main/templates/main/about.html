@@ -1,0 +1,183 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+	<section class="section section--first section--bg" data-bg="{% static "main/img/bg/section__bg.jpg" %}">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section__wrap">
+						<h1 class="section__title section__title--head">Про нас</h1>
+						<ul class="breadcrumbs">
+							<li class="breadcrumbs__item"><a href="{% url "main:index" %}">Головна</a></li>
+							<li class="breadcrumbs__item breadcrumbs__item--active">Про нас</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section__title"><b>Affordable</b> – Найкраще місце для фільмів</h2>
+
+					<p class="section__text">Ласкаво просимо до кінотеатру <b>Affordable</b>, ідеальне місце для всіх любителів кіно. Пориньте у світ захоплюючих історій, приголомшливих візуальних ефектів і незабутніх виступів. Ознайомтеся з нашою великою бібліотекою фільмів, що охоплюють різні жанри, епохи та культури.</p>
+
+					<p class="section__text">Насолоджуйтесь радістю кіно з нашими підібраними колекціями, що містять підібрані фільми, згруповані за темами, режисерами чи акторами. Пориньте у світ кінематографічної магії та дозвольте собі перенестися в нові сфери уяви та емоцій.</p>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="feature">
+						<span class="feature__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,2H5A3,3,0,0,0,2,5V15a3,3,0,0,0,3,3H7.64l-.58,1a2,2,0,0,0,0,2,2,2,0,0,0,1.75,1h6.46A2,2,0,0,0,17,21a2,2,0,0,0,0-2l-.59-1H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2ZM8.77,20,10,18H14l1.2,2ZM20,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V14H20Zm0-3H4V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1Z"/></svg>
+						</span>
+						<h3 class="feature__title">Найвища якість</h3>
+						<p class="feature__text">Насолоджуйтесь переглядом фільмів, як ніколи раніше, завдяки 3D показу. Пориньте в приголомшливі візуальні ефекти, яскраві кольори та кришталево чисті деталі.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="feature">
+						<span class="feature__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,2a1,1,0,0,0-1,1V5H18V3a1,1,0,0,0-2,0V4H8V3A1,1,0,0,0,6,3V5H4V3A1,1,0,0,0,2,3V21a1,1,0,0,0,2,0V19H6v2a1,1,0,0,0,2,0V20h8v1a1,1,0,0,0,2,0V19h2v2a1,1,0,0,0,2,0V3A1,1,0,0,0,21,2ZM6,17H4V15H6Zm0-4H4V11H6ZM6,9H4V7H6Zm10,9H8V13h8Zm0-7H8V6h8Zm4,6H18V15h2Zm0-4H18V11h2Zm0-4H18V7h2Z"/></svg>
+						</span>
+						<h3 class="feature__title">Велике розмаїття фільмів</h3>
+						<p class="feature__text">Відкрийте для себе величезну та різноманітну колекцію фільмів у нашій великій базі даних. З тисячами назв на вибір, у вас ніколи не закінчаться варіанти.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="feature">
+						<span class="feature__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18,6H14.41l2.3-2.29a1,1,0,1,0-1.42-1.42L12,5.54l-1.17-2a1,1,0,1,0-1.74,1L10,6H6A3,3,0,0,0,3,9v8a3,3,0,0,0,3,3v1a1,1,0,0,0,2,0V20h8v1a1,1,0,0,0,2,0V20a3,3,0,0,0,3-3V9A3,3,0,0,0,18,6Zm1,11a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V9A1,1,0,0,1,6,8H18a1,1,0,0,1,1,1Z"></path></svg>
+						</span>
+						<h3 class="feature__title">Доступність</h3>
+						<p class="feature__text">Наш кінотеатр обладнаний для легкого доступу для людей з обмеженими можливостями, включаючи пандуси та спеціальні зони.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="feature">
+						<span class="feature__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"></path></svg>
+						</span>
+						<h3 class="feature__title">Ранній доступ до нових фільмів</h3>
+						<p class="feature__text">Дізнавайтеся найновіші фільми та ексклюзивний контент першими завдяки нашій функції раннього доступу. Зазирніть у майбутні релізи, отримайте доступ до спеціальних показів і будьте на крок попереду.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="feature">
+						<span class="feature__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.83,13.45a1,1,0,0,0-1.66,0l-4,6a1,1,0,0,0,0,1A1,1,0,0,0,8,21h8a1,1,0,0,0,.88-.53,1,1,0,0,0-.05-1ZM9.87,19,12,15.8,14.13,19ZM19,3H5A3,3,0,0,0,2,6v9a3,3,0,0,0,3,3h.85a1,1,0,1,0,0-2H5a1,1,0,0,1-1-1V6A1,1,0,0,1,5,5H19a1,1,0,0,1,1,1v9a1,1,0,0,1-1,1h-.85a1,1,0,0,0,0,2H19a3,3,0,0,0,3-3V6A3,3,0,0,0,19,3Z"></path></svg>
+						</span>
+						<h3 class="feature__title">Комфортні умови перегляду</h3>
+						<p class="feature__text">Наші зручні сидіння та сучасне обладнання забезпечують комфортне і незабутнє переглядання фільмів для всіх наших глядачів.</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="feature">
+						<span class="feature__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.05566,12h-2a1,1,0,0,0,0,2v2H17.8714a2.96481,2.96481,0,0,0,.18426-1A2.99955,2.99955,0,0,0,12.458,13.50049a.99992.99992,0,1,0,1.73242.999A1.0009,1.0009,0,0,1,15.05566,14a1,1,0,0,1,0,2,1,1,0,0,0,0,2,1,1,0,1,1,0,2,1.0009,1.0009,0,0,1-.86523-.49951.99992.99992,0,1,0-1.73242.999A2.99955,2.99955,0,0,0,18.05566,19a2.96481,2.96481,0,0,0-.18426-1h1.18426v3a1,1,0,0,0,2,0V14a1,1,0,1,0,0-2ZM9.08594,11.24268a.99963.99963,0,1,0,1.93945-.48536L9.26855,3.72754a2.28044,2.28044,0,0,0-4.4248,0L3.08594,10.75732a.99963.99963,0,1,0,1.93945.48536L5.58618,9H8.52545ZM6.0863,7l.6969-2.78711a.29222.29222,0,0,1,.5459,0L8.02563,7Zm7.96936,0h1a1.001,1.001,0,0,1,1,1V9a1,1,0,0,0,2,0V8a3.00328,3.00328,0,0,0-3-3h-1a1,1,0,0,0,0,2Zm-4,9h-1a1.001,1.001,0,0,1-1-1V14a1,1,0,0,0-2,0v1a3.00328,3.00328,0,0,0,3,3h1a1,1,0,0,0,0-2Z"></path></svg>
+						</span>
+						<h3 class="feature__title">Субтитри для поганочуючих</h3>
+						<p class="feature__text">Ми пропонуємо субтитри для всіх фільмів. Це дозволяє нашим глядачам з вадами слуху насолоджуватися кіно, маючи доступ до текстового відтворення аудіосупроводу.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section section--dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section__title">Як це працює</h2>
+				</div>
+				<div class="col-12 col-lg-4">
+					<div class="how">
+						<span class="how__number">01</span>
+						<h3 class="how__title">Створіть акаунт</h3>
+						<p class="how__text">Почніть свій шлях перегляду фільмів, створивши персоналізований обліковий запис на нашій платформі. Легко зареєструйтеся та отримайте доступ до світу розваг.</p>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4">
+					<div class="how">
+						<span class="how__number">02</span>
+						<h3 class="how__title">Купіть квиток</h3>
+						<p class="how__text">Виберіть ідеальне місце в кінотеатрі, яке відповідає вашим уподобанням. Ми пропонуємо широкий вибір місць від базових до преміум.</p>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4">
+					<div class="how">
+						<span class="how__number">03</span>
+						<h3 class="how__title">Насолоджуйтесь Affordable</h3>
+						<p class="how__text">Пориньте у світ Affordable, де на вас чекає необмежена кількість фільмів. З нашою величезною колекцією фільмів кожен знайде щось для себе.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section section--dark section--bt">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="section__title section__title--carousel">Дорожня карта</h2>
+				</div>
+				<div class="col-12">
+					<div class="section__roadmap splide splide--roadmap">
+						<div class="splide__arrows">
+							<button class="splide__arrow splide__arrow--prev" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z"/></svg></button>
+							<button class="splide__arrow splide__arrow--next" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z"/></svg></button>
+						</div>
+						<div class="splide__track">
+							<ul class="splide__list">
+								<li class="splide__slide">
+									<div class="roadmap roadmap--active">
+										<h3 class="roadmap__title">2024 M1</h3>
+										<ul class="roadmap__list">
+											<li>Провели маркетингові дослідження фільмів, вивчили потреби і переваги цільової аудиторії.</li>
+											<li>Визначили основні цілі та завдання сайту: надання контенту, функціонал та дизайн.</li>
+										</ul>
+									</div>
+								</li>
+								<li class="splide__slide">
+									<div class="roadmap roadmap--active">
+										<h3 class="roadmap__title">2024 M2</h3>
+										<ul class="roadmap__list">
+											<li>Створили інформаційну архітектуру сайту, визначивши основні розділи та категорії контенту.</li>
+											<li>Розробили привабливий та інтуїтивно зрозумілий дизайну сайту, що забезпечує зручну навігацію та високу інтерактивність користувачів.</li>
+										</ul>
+									</div>
+								</li>
+								<li class="splide__slide">
+									<div class="roadmap">
+										<h3 class="roadmap__title">2024 M3</h3>
+										<ul class="roadmap__list">
+											<li>Створили бази даних фільмів та мультфільмів, включаючи інформацію про назву, жанр, акторів, рейтинги та відгуки.</li>
+											<li>Розробили потужну пошукову систему, яка дозволить користувачам легко знаходити фільми, мультфільми та аніме.</li>
+										</ul>
+									</div>
+								</li>
+								<li class="splide__slide">
+									<div class="roadmap">
+										<h3 class="roadmap__title">2024 M4</h3>
+										<ul class="roadmap__list">
+											<li>Розробили систему реєстрації та авторизації користувачів для створення особистих кабінетів.</li>
+											<li>Реалізація можливості залишати відгуки та оцінки.</li>
+										</ul>
+									</div>
+								</li>
+								<li class="splide__slide">
+									<div class="roadmap">
+										<h3 class="roadmap__title">2024 M5</h3>
+										<ul class="roadmap__list">
+											<li>Захист даних користувачів, застосування відповідних протоколів безпеки.</li>
+											<li>Тестування сайту на різних пристроях та браузерах, виправлення помилок та покращення продуктивності.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock content %}
