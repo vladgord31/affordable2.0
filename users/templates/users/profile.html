@@ -1,0 +1,213 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+	<section class="section section--first section--bg" data-bg="{% static "main/img/bg/section__bg.jpg" %}">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section__wrap">
+						<h1 class="section__title section__title--head">My Affordable</h1>
+						<ul class="breadcrumbs">
+							<li class="breadcrumbs__item"><a href="{% url "main:index" %}">Головна</a></li>
+							<li class="breadcrumbs__item breadcrumbs__item--active">Профіль</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="content">
+		<div class="profile">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="profile__content">
+							{% csrf_token %}
+							<div class="profile__user">
+								<div class="profile__avatar">
+									<img src="{% static "main/img/bg/user.svg" %}" alt="">
+								</div>
+								<div class="profile__meta">
+									<h3>{{ user.username }}</h3>
+									<span>Affordable ID: {{ user.id }}</span>
+								</div>
+							</div>
+							<ul class="nav nav-tabs content__tabs content__tabs--profile" id="content__tabs" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button id="1-tab" class="active" data-bs-toggle="tab" data-bs-target="#tab-1" type="button" role="tab" aria-controls="tab-1" aria-selected="true">Профіль</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button id="3-tab" data-bs-toggle="tab" data-bs-target="#tab-3" type="button" role="tab" aria-controls="tab-3" aria-selected="false">Налаштування</button>
+								</li>
+							</ul>
+							<form class="profile__logout" action="{% url 'users:logout' %}" method="post">
+								{% csrf_token %}
+								<button type="submit">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"/>
+									</svg>
+									<span>Вийти</span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="tab-content">
+				<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab" tabindex="0">
+					<div class="row">
+						<div class="col-12 col-sm-6 col-xl-3">
+							<div class="stats">
+								<span>Квиток</span>
+								<p>150₴</p>
+								<img src="{% static "main/img/bg/credit-card.svg" %}" alt="">
+							</div>
+						</div>
+						<div class="col-12 col-sm-6 col-xl-3">
+							<div class="stats">
+								<span>Переглянуті фільми</span>
+								<p>1 172</p>
+								<img src="{% static "main/img/bg/film.svg" %}" alt="">
+							</div>
+						</div>
+						<div class="col-12 col-sm-6 col-xl-3">
+							<div class="stats">
+								<span>Ваші коментарі</span>
+								<p>2 573</p>
+								<img src="{% static "main/img/bg/comments.svg" %}" alt="">
+							</div>
+						</div>
+						<div class="col-12 col-sm-6 col-xl-3">
+							<div class="stats">
+								<span>Ваші відгуки</span>
+								<p>1 021</p>
+								<img src="{% static "main/img/bg/star-half-alt.svg" %}" alt="">
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="dashbox">
+								<div class="dashbox__title">
+									<h3><img src="{% static "main/img/bg/film.svg" %}" alt="">Заброньовані місця</h3>
+
+									<div class="dashbox__wrap">
+										<a class="dashbox__refresh" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,11a1,1,0,0,0-1,1,8.05,8.05,0,1,1-2.22-5.5h-2.4a1,1,0,0,0,0,2h4.53a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4.77A10,10,0,1,0,22,12,1,1,0,0,0,21,11Z"/></svg></a>
+										<a class="dashbox__more" href="{% url "cinema:catalog" %}">Всі</a>
+									</div>
+								</div>
+								<div class="dashbox__table-wrap dashbox__table-wrap--1">
+									<table class="dashbox__table">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>НАЗВА</th>
+												<th>КАТЕГОРІЯ</th>
+												<th>РЕЙТИНГ</th>
+											</tr>
+										</thead>
+										<tbody>
+										{% for seat in booked_seats %}
+                                        <tr>
+                                            <td>
+                                                <div class="dashbox__table-text">{{ seat.id }}</div>
+                                            </td>
+                                            <td>
+                                                <div class="dashbox__table-text"><a href="">{{ seat.movie.title }}</a></div>
+                                            </td>
+                                            <td>
+                                                <div class="dashbox__table-text">{{ seat.seat_number }}</div>
+                                            </td>
+                                            <td>
+                                                <div class="dashbox__table-text dashbox__table-text--rate">{{ seat.movie.price }}</div>
+                                            </td>
+                                        </tr>
+										{% empty %}
+										<tr>
+											<td>
+                                                <div class="dashbox__table-text">Ви ще не забронювали жодного місця.</div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="3-tab" tabindex="0">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<form action="#" class="sign__form sign__form--profile">
+								<div class="row">
+									<div class="col-12">
+										<h4 class="sign__title">Деталі профілю</h4>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="username">Логін</label>
+											<input id="username" type="text" name="username" class="sign__input" placeholder="{{ user.username }}">
+										</div>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="email">Пошта</label>
+											<input id="email2" type="text" name="email" class="sign__input" placeholder="{{ user.email }}">
+										</div>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="firstname">Ім'я</label>
+											<input id="firstname" type="text" name="firstname" class="sign__input" placeholder="{{ user.first_name }}">
+										</div>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="lastname">Прізвище</label>
+											<input id="lastname" type="text" name="lastname" class="sign__input" placeholder="{{ user.last_name}}">
+										</div>
+									</div>
+									<div class="col-12">
+										<button class="sign__btn sign__btn--small" type="button"><span>Зберегти</span></button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-12 col-lg-6">
+							<form action="#" class="sign__form sign__form--profile">
+								<div class="row">
+									<div class="col-12">
+										<h4 class="sign__title">Змінити пароль</h4>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="oldpass">Старий пароль</label>
+											<input id="oldpass" type="password" name="oldpass" class="sign__input">
+										</div>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="newpass">Новий пароль</label>
+											<input id="newpass" type="password" name="newpass" class="sign__input">
+										</div>
+									</div>
+									<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+										<div class="sign__group">
+											<label class="sign__label" for="confirmpass">Підтвердіть новий пароль</label>
+											<input id="confirmpass" type="password" name="confirmpass" class="sign__input">
+										</div>
+									</div>
+									<div class="col-12">
+										<button class="sign__btn sign__btn--small" type="button"><span>Змінити</span></button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
